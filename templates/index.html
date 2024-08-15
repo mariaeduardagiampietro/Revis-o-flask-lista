@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Séries</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Séries</h1>
+        <a href="/adicionar">Adicionar Nova Série</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nome da Série</th>
+                    <th>Gênero</th>
+                    <th>Número de Episódios</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for serie in series %}
+                <tr>
+                    <td>{{ serie.nome }}</td>
+                    <td>{{ serie.genero }}</td>
+                    <td>{{ serie.episodios }}</td>
+                    <td>
+                        <a href="/editar/{{ serie.codigo }}">Editar</a>
+                        <a href="/apagar/{{ serie.codigo }}">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
